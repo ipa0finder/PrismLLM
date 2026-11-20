@@ -1,0 +1,23 @@
+name: PrismLLM
+options:
+  bundleIdPrefix: app.prismllm
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  PrismLLM:
+    type: application
+    platform: iOS
+    sources:
+      - path: PrismLLM
+      - path: ../www
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.prismllm.mobile
+        PRODUCT_NAME: PrismLLM
+        SWIFT_VERSION: 5.0
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_NSAppTransportSecurity_NSAllowsArbitraryLoads: NO
+        CODE_SIGNING_ALLOWED: NO
