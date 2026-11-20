@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090d"><title>PrismLLM</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar"><button class="iconbtn" id="menuBtn" aria-label="Open menu">☰</button><div class="brand"><span class="prism">◈</span><b>PrismLLM</b><small>PRIVATE AI WORKSPACE</small></div><button class="model" id="modelBtn">Auto ▾</button></header>
+<aside id="drawer" class="drawer hidden"><button data-view="chat">New chat</button><button data-view="history">History</button><button data-view="keys">Keys & endpoints</button><button data-view="settings">Settings</button><button id="closeDrawer">Close</button></aside>
+<main id="main">
+<section id="chatView" class="view">
+<div id="messages" class="messages"><div class="welcome"><div class="orb">◈</div><h1>What can I help with?</h1><p>Your models. Your keys. Your device.</p><div class="suggestions"><button>Explain a complex idea</button><button>Write and debug code</button><button>Summarize a document</button></div></div></div>
+<div class="composerWrap"><div class="composer"><textarea id="prompt" rows="1" placeholder="Message PrismLLM…" enterkeyhint="send"></textarea><button id="sendBtn" class="send" aria-label="Send">↑</button></div><div class="footnote">AI can make mistakes. Verify important information.</div></div>
+</section>
+<section id="historyView" class="view hidden"><h2>Conversations</h2><div id="historyList"></div></section>
+<section id="keysView" class="view hidden"><h2>Keys & endpoints</h2><p class="muted">Keys are stored in iOS Keychain in the native app.</p><label>Provider / key name<input id="keyName" placeholder="OpenAI, Groq, etc."></label><label>Base URL<input id="keyURL" placeholder="https://api.example.com/v1"></label><label>API key<input id="keyValue" type="password" placeholder="Paste provider key"></label><button id="saveProvider" class="primary">Save provider</button><div id="providerList"></div><hr><label>External FreeLLMAPI gateway URL<input id="gatewayURL" placeholder="https://your-gateway.example/v1"></label><label>Unified gateway token<input id="gatewayKey" type="password" placeholder="fla_…"></label><button id="saveGateway" class="primary">Save gateway</button></section>
+<section id="settingsView" class="view hidden"><h2>Settings</h2><label>Routing mode<select id="strategy"><option value="auto-failover">Auto failover</option><option value="fastest">Fastest</option><option value="reliable">Highest reliability</option></select></label><label>Routing source<select id="mode"><option value="direct">Direct on-device routing</option><option value="gateway">External FreeLLMAPI gateway</option></select></label><label>Model ID<input id="modelID" value="auto" placeholder="auto or provider/model"></label><button id="saveSettings" class="primary">Save settings</button><button id="exportBtn">Export backup</button><label class="filelabel">Import backup<input id="importFile" type="file" accept="application/json"></label><button id="clearBtn" class="danger">Delete local conversations</button></section>
+</main></div>
+<script src="app.js"></script>
+</body></html>
